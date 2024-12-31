@@ -2,13 +2,6 @@
 include __DIR__.'/../../layouts/header.php';
 include __DIR__.'/../../../database/connection.php';
 
-
-if (!isset($_SESSION['user_id']) || $_SESSION['role_id'] != 1) {
-    header("Location: ../../auth/login.php");
-    exit();
-}
-
-
 $roles_query = "SELECT * FROM role";
 $roles_result = mysqli_query($conn, $roles_query);
 
@@ -28,9 +21,6 @@ if (isset($_POST['submit'])) {
 <div class="container">
     <h2>Add New User</h2>
     
-    <?php if (isset($error)): ?>
-        <div class="alert alert-danger"><?php echo $error; ?></div>
-    <?php endif; ?>
 
     <form method="post" action="">
         <div class="form-group">
