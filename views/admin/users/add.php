@@ -2,9 +2,6 @@
 include __DIR__.'/../../layouts/header.php';
 include __DIR__.'/../../../database/connection.php';
 
-$roles_query = "SELECT * FROM role";
-
-
 if (isset($_POST['submit'])) {
     $username =  $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -14,13 +11,15 @@ if (isset($_POST['submit'])) {
     $query = "INSERT INTO user (username, password, fullname, role_id) 
               VALUES ('$username', '$password', '$fullname', $role_id)";
     
-   
+    if(mysqli_query($conn, $query)) {
+        header("Location: ../dashboard.php");
+        exit();
+    }
 }
 ?>
 
 <div class="container">
     <h2>Add New User</h2>
-    
 
     <form method="post" action="">
         <div class="form-group">
@@ -41,11 +40,8 @@ if (isset($_POST['submit'])) {
         <div class="form-group">
             <label>Role</label>
             <select name="role_id" class="form-control" required>
-                <?php while($role = mysqli_fetch_assoc($roles_query)): ?>
-                    <option value="<?php echo $role['id']; ?>">
-                        <?php echo $role['name']; ?>
-                    </option>
-                <?php endwhile; ?>
+                <option value="1">Admin</option>
+                <option value="2">User</option>
             </select>
         </div>
         
