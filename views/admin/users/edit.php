@@ -1,4 +1,19 @@
-<?php include __DIR__.'/../../layouts/header.php'; ?>
+<?php include __DIR__.'/../../layouts/header.php';
+
+if (isset($_POST['submit'])) {
+    $username =  $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $fullname = $_POST['fullname'];
+    $role_id = (int)$_POST['role_id'];
+
+    $query = "INSERT INTO user (username, password, fullname, role_id) 
+              VALUES ('$username', '$password', '$fullname', $role_id)";
+    
+  
+}
+
+
+?>
 
 <h2>Edit User</h2>
 
