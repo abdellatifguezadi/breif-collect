@@ -42,7 +42,7 @@
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . $row['role_name'] . "</td>";
+                echo "<td>" . $row['role_id'] . "</td>";
                 echo "<td>
                         <a href='./users/edit.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a> 
                         <a href='./users/delete.php?id=" . $row['id'] . "' class='btn btn-danger btn-sm' 
