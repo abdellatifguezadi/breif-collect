@@ -3,7 +3,7 @@ include __DIR__.'/../../layouts/header.php';
 include __DIR__.'/../../../database/connection.php';
 
 $roles_query = "SELECT * FROM role";
-$roles_result = mysqli_query($conn, $roles_query);
+
 
 if (isset($_POST['submit'])) {
     $username =  $_POST['username'];
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         <div class="form-group">
             <label>Role</label>
             <select name="role_id" class="form-control" required>
-                <?php while($role = mysqli_fetch_assoc($roles_result)): ?>
+                <?php while($role = mysqli_fetch_assoc($roles_query)): ?>
                     <option value="<?php echo $role['id']; ?>">
                         <?php echo $role['name']; ?>
                     </option>
