@@ -4,17 +4,7 @@
 
 
 
-if (isset($_POST['submit'])) {
-    $username =  $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $fullname = $_POST['fullname'];
-    $role_id = (int)$_POST['role_id'];
 
-    $query = "INSERT INTO user (username, password, fullname, role_id) 
-              VALUES ('$username', '$password', '$fullname', $role_id)";
-    
-  
-}
 ?>
 
 <h2>Admin Dashboard</h2>
