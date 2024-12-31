@@ -4,17 +4,7 @@
 
 
 
-if (isset($_POST['submit'])) {
-    $username =  $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $fullname = $_POST['fullname'];
-    $role_id = (int)$_POST['role_id'];
 
-    $query = "INSERT INTO user (username, password, fullname, role_id) 
-              VALUES ('$username', '$password', '$fullname', $role_id)";
-    
-  
-}
 ?>
 
 <h2>Admin Dashboard</h2>
@@ -52,7 +42,7 @@ if (isset($_POST['submit'])) {
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . $row['role_name'] . "</td>";
+                echo "<td>" . $row['role_id'] . "</td>";
                 echo "<td>
                         <a href='./users/edit.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a> 
                         <a href='./users/delete.php?id=" . $row['id'] . "' class='btn btn-danger btn-sm' 
